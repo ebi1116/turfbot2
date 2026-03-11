@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'whatsapp',
 ]
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -119,15 +121,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv()
 
-# Load environment variables
-load_dotenv(os.path.join(BASE_DIR, '.env'))
-
-# Twilio configuration
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
-TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
+TWILIO_WHATSAPP_NUMBER = "whatsapp:+14155238886"

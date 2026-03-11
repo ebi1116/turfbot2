@@ -267,7 +267,12 @@ def whatsapp_webhook(request):
             session.step = "search"
             session.save()
 
-            msg.body("💰 ✅ Booking Confirmed! Enjoy your game!\n\nType START to book again.")
+            msg.body(
+                     "💰 ✅ Booking Confirmed! Enjoy your game!\n\n"
+                     "Pay Directly at turf and show this message.\n\n"
+                     
+                     "Type START to book again."
+                     )
             return HttpResponse(str(resp), content_type="application/xml")
 
         elif incoming_msg.lower() == "no":
